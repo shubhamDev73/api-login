@@ -1,0 +1,16 @@
+{% extends 'api/base.html' %}
+
+{% block main %}
+ <div>
+ <h1>Third-party authentication demo</h1>
+
+ <p>
+   {% if user and not user.is_anonymous %}
+     Hello {{ user.get_full_name|default:user.username }}!<br>
+     <a href="/accounts/logout/">Logout</a>
+   {% else %}
+     <a href="/accounts/login/">Login</a>
+   {% endif %}
+ </p>
+ </div>
+{% endblock %}
